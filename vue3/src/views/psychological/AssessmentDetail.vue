@@ -97,56 +97,24 @@ const loadAssessmentData = () => {
           difficulty: 1,
           questions: [
             {
-              content: '过去两周内，我感到情绪低落、沮丧或绝望',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
+              content: '我感到心情愉快',
+              options: ['没有', '轻度', '中度', '重度']
             },
             {
-              content: '过去两周内，我对做事情几乎没有兴趣或乐趣',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
+              content: '我对未来充满希望',
+              options: ['没有', '轻度', '中度', '重度']
             },
             {
-              content: '过去两周内，我难以入睡或保持睡眠，或睡得太多',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
+              content: '我能够专注于工作或学习',
+              options: ['没有', '轻度', '中度', '重度']
             },
             {
-              content: '过去两周内，我感到疲倦或没有精力',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
+              content: '我觉得自己是一个失败者',
+              options: ['没有', '轻度', '中度', '重度']
             },
             {
-              content: '过去两周内，我感到紧张、焦虑或坐立不安',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '过去两周内，我难以集中注意力做事情',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '过去两周内，我感到自卑或觉得自己是个失败者',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '过去两周内，我有过伤害自己的想法',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '过去两周内，我的胃口比平时差很多或好很多',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '过去两周内，我感到孤独，即使周围有人',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '过去两周内，我对未来感到悲观',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '过去两周内，我感到自己的生活没有意义',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '过去两周内，我感到难以做出决定',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
+              content: '我觉得生活不值得继续',
+              options: ['没有', '轻度', '中度', '重度']
             }
           ]
         },
@@ -157,63 +125,19 @@ const loadAssessmentData = () => {
           difficulty: 1,
           questions: [
             {
-              content: '我感到心情沮丧，郁闷',
+              content: '我感到情绪低落',
               options: ['没有', '轻度', '中度', '重度']
             },
             {
-              content: '我对未来感到希望',
+              content: '我对事物失去兴趣',
               options: ['没有', '轻度', '中度', '重度']
             },
             {
-              content: '我觉得自己是一个有用的人，有人需要我',
+              content: '我难以入睡或保持睡眠',
               options: ['没有', '轻度', '中度', '重度']
             },
             {
-              content: '我感到孤独',
-              options: ['没有', '轻度', '中度', '重度']
-            },
-            {
-              content: '我觉得生活有意义',
-              options: ['没有', '轻度', '中度', '重度']
-            },
-            {
-              content: '我对自己的评价很低',
-              options: ['没有', '轻度', '中度', '重度']
-            },
-            {
-              content: '我做事情时难以集中注意力',
-              options: ['没有', '轻度', '中度', '重度']
-            },
-            {
-              content: '我感到精力充沛',
-              options: ['没有', '轻度', '中度', '重度']
-            },
-            {
-              content: '我对自己的过去感到后悔',
-              options: ['没有', '轻度', '中度', '重度']
-            },
-            {
-              content: '我对身边发生的事情感兴趣',
-              options: ['没有', '轻度', '中度', '重度']
-            },
-            {
-              content: '我感到悲伤',
-              options: ['没有', '轻度', '中度', '重度']
-            },
-            {
-              content: '我觉得自己是一个失败者',
-              options: ['没有', '轻度', '中度', '重度']
-            },
-            {
-              content: '我觉得生活不值得继续',
-              options: ['没有', '轻度', '中度', '重度']
-            },
-            {
-              content: '我对自己的未来感到迷茫',
-              options: ['没有', '轻度', '中度', '重度']
-            },
-            {
-              content: '我能够从日常活动中获得乐趣',
+              content: '我感到疲倦或缺乏精力',
               options: ['没有', '轻度', '中度', '重度']
             }
           ]
@@ -239,113 +163,33 @@ const loadAssessmentData = () => {
             {
               content: '我感到呼吸困难',
               options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '我感到头晕或眩晕',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '我担心会发生可怕的事情',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '我感到容易疲劳',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '我难以放松下来',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '我感到肌肉紧张',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '我因担忧而难以入睡',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '我对很多事情都感到担忧',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '我感到坐立不安',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '我害怕失控',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
-            },
-            {
-              content: '我感到莫名的恐惧',
-              options: ['从不', '几天', '一半以上的日子', '几乎每天']
             }
           ]
         },
         4: {
           id: 4,
           title: '人格特质分析',
-          duration: 10,
+          duration: 15,
           difficulty: 2,
           questions: [
             {
-              content: '我喜欢参加大型社交活动',
+              content: '我喜欢与他人交往',
               options: ['非常不符合', '不太符合', '一般', '比较符合', '非常符合']
             },
             {
-              content: '我常常关注自己的感受和情绪',
+              content: '我做事有条理',
               options: ['非常不符合', '不太符合', '一般', '比较符合', '非常符合']
             },
             {
-              content: '我做事有条理，注重细节',
+              content: '我容易信任他人',
               options: ['非常不符合', '不太符合', '一般', '比较符合', '非常符合']
             },
             {
-              content: '我乐于帮助他人',
-              options: ['非常不符合', '不太符合', '一般', '比较符合', '非常符合']
-            },
-            {
-              content: '我喜欢尝试新事物和新体验',
-              options: ['非常不符合', '不太符合', '一般', '比较符合', '非常符合']
-            },
-            {
-              content: '我容易感到焦虑或紧张',
-              options: ['非常不符合', '不太符合', '一般', '比较符合', '非常符合']
-            },
-            {
-              content: '我是一个可靠的人',
-              options: ['非常不符合', '不太符合', '一般', '比较符合', '非常符合']
-            },
-            {
-              content: '我喜欢与人合作完成任务',
-              options: ['非常不符合', '不太符合', '一般', '比较符合', '非常符合']
-            },
-            {
-              content: '我对艺术和美的事物有浓厚兴趣',
-              options: ['非常不符合', '不太符合', '一般', '比较符合', '非常符合']
-            },
-            {
-              content: '我倾向于独立完成工作',
-              options: ['非常不符合', '不太符合', '一般', '比较符合', '非常符合']
-            },
-            {
-              content: '我能够很好地控制自己的情绪',
-              options: ['非常不符合', '不太符合', '一般', '比较符合', '非常符合']
-            },
-            {
-              content: '我做事有计划，喜欢按计划进行',
-              options: ['非常不符合', '不太符合', '一般', '比较符合', '非常符合']
-            },
-            {
-              content: '我关心他人的感受',
+              content: '我情绪稳定',
               options: ['非常不符合', '不太符合', '一般', '比较符合', '非常符合']
             },
             {
               content: '我喜欢思考抽象的概念',
-              options: ['非常不符合', '不太符合', '一般', '比较符合', '非常符合']
-            },
-            {
-              content: '我性格外向，善于与人交流',
               options: ['非常不符合', '不太符合', '一般', '比较符合', '非常符合']
             }
           ]
@@ -416,13 +260,68 @@ const getDifficultyText = (difficulty) => {
 
 // 提交测评
 const submitAssessment = () => {
+  // 验证是否完成所有题目
+  if (Object.keys(answers.value).length !== assessment.value.questions.length) {
+    ElMessage.warning('请完成所有题目后再提交')
+    return
+  }
+
+  // 计算得分
+  const scoreData = calculateScore()
+
   // 实际项目中应将答案提交到后端
   ElMessage.success('测评提交成功！正在生成报告...')
 
-  // 模拟延迟后跳转到结果页
+  // 携带答案和得分跳转到结果页
   setTimeout(() => {
-    router.push(`/psychological-assessment/result/${id}`)
+    router.push({
+      path: `/psychological-assessment/result/${id}`,
+      query: {
+        answers: JSON.stringify(answers.value),
+        score: scoreData.totalScore
+      }
+    })
   }, 1500)
+}
+
+// 计算得分的方法
+// 计算得分的方法
+const calculateScore = () => {
+  let totalScore = 0
+  const questionScores = []
+
+  // 根据不同测评类型计算得分
+  Object.entries(answers.value).forEach(([index, selectedOption]) => {
+    // 获取当前问题对象（保留用于后续可能的扩展）
+    const question = assessment.value.questions[parseInt(index)];
+    let score = 0
+
+    // 为不同选项赋予不同分值
+    if (assessment.value.id === 1 || assessment.value.id === 3) {
+      // 心理健康状态评估和焦虑程度测试：选项对应0-3分
+      score = selectedOption
+    } else if (assessment.value.id === 2) {
+      // 抑郁倾向筛查：选项对应0-3分
+      score = selectedOption
+    } else if (assessment.value.id === 4) {
+      // 人格特质分析：选项对应1-5分
+      score = selectedOption + 1
+    }
+
+    totalScore += score
+    questionScores.push({
+      questionIndex: parseInt(index) + 1,
+      // 可以在这里使用question变量，例如添加问题内容
+      questionContent: question.content,
+      score: score
+    })
+  })
+
+  return {
+    totalScore,
+    questionScores,
+    totalQuestions: assessment.value.questions.length
+  }
 }
 </script>
 
@@ -460,27 +359,27 @@ const submitAssessment = () => {
   justify-content: center;
   gap: 2rem;
   color: #666;
-  font-size: 0.9rem;
 }
 
 .question-card {
-  background: white;
-  border-radius: 8px;
+  background: #fff;
+  border-radius: 10px;
   padding: 2rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .question-number {
-  color: #1890ff;
+  color: #409EFF;
   font-weight: bold;
   margin-bottom: 1rem;
+  font-size: 1.1rem;
 }
 
 .question-content {
   font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-  color: #333;
+  margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
 .options {
@@ -491,24 +390,26 @@ const submitAssessment = () => {
 
 .option-item {
   padding: 1rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 4px;
+  border: 1px solid #eee;
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .option-item:hover {
-  background-color: #f5f7fa;
+  border-color: #409EFF;
+  background-color: #f5faff;
 }
 
 .option-item.selected {
+  border-color: #409EFF;
   background-color: #e6f7ff;
-  border-color: #91d5ff;
   color: #1890ff;
 }
 
 .navigation-buttons {
   display: flex;
   justify-content: space-between;
+  margin-top: 2rem;
 }
 </style>

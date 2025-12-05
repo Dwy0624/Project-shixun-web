@@ -155,6 +155,15 @@ const frontendRoutes = [
           title: '测评结果报告',
           requiresAuth: true
         }
+      },
+      {
+        path: '/psychological-assessment/result/:id',
+        name: 'AssessmentResult',
+        component: () => import('@/views/frontend/AssessmentResult.vue'),
+        meta: {
+          title: '测评结果',
+          requiresAuth: true
+        }
       }
     ]
   },

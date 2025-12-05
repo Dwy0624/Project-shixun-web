@@ -72,6 +72,20 @@ const assessments = ref([
     description: '通过多维度评估，帮助您了解自己的人格特质',
     duration: 15,
     difficulty: 2
+  },
+  {
+    id: 5,
+    title: '匹兹堡睡眠质量指数',
+    description: '评估您的睡眠质量、入睡时间、睡眠持续性等睡眠相关指标',
+    duration: 12,
+    difficulty: 1
+  },
+  {
+    id: 6,
+    title: '生活事件量表--压力测评',
+    description: '评估生活中各类事件给您带来的压力程度和影响',
+    duration: 10,
+    difficulty: 2
   }
 ])
 
