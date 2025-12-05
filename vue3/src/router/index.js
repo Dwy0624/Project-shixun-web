@@ -1,7 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useUserStore } from '@/store/user'
 import BackendLayout from '@/layouts/BackendLayout.vue'
-
+import Home from '@/views/frontend/Home.vue'
+import Login from '@/views/auth/Login.vue'
+// 导入心理测评组件
+import PsychologicalAssessment from '@/views/psychological/PsychologicalAssessment.vue'
+import AssessmentDetail from '@/views/psychological/AssessmentDetail.vue'
 
 // 后台路由
 export const backendRoutes = [
@@ -131,6 +135,26 @@ const frontendRoutes = [
           title: '心理测评',
           requiresAuth: true  // 需要登录才能访问
         }
+      },
+      // 心理测评题目页面
+      {
+        path: '/psychological-test/:testId',
+        name: 'PsychologicalTestQuestions',
+        component: () => import('@/views/frontend/PsychologicalTestQuestions.vue'),
+        meta: {
+          title: '心理测评题目',
+          requiresAuth: true
+        }
+      },
+      // 心理测评结果页面
+      {
+        path: '/psychological-test/report/:reportId',
+        name: 'PsychologicalTestReport',
+        component: () => import('@/views/frontend/PsychologicalTestReport.vue'),
+        meta: {
+          title: '测评结果报告',
+          requiresAuth: true
+        }
       }
     ]
   },
@@ -208,7 +232,36 @@ const router = createRouter({
   routes: [
     ...frontendRoutes,
     ...backendRoutes,
-    ...errorRoutes
+    ...errorRoutes,
+    {
+      path: '/',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/auth/login',
+      name: 'login',
+      component: Login
+    },
+    // 心理测评列表路由
+    {
+      path: '/psychological-assessment',
+      name: 'PsychologicalAssessment',
+      component: PsychologicalAssessment,
+      meta: {
+        requiresAuth: true // 需要登录
+      }
+    },
+    // 心理测评详情路由
+    {
+      path: '/psychological-assessment/:id',
+      name: 'AssessmentDetail',
+      component: AssessmentDetail,
+      meta: {
+        requiresAuth: true // 需要登录
+      },
+      props: true // 将路由参数作为props传递
+    }
   ]
 })
 

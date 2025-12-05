@@ -19,7 +19,7 @@
               <router-link to="/auth/login" class="primary-btn" v-else>
                 <i class="fas fa-heart"></i>开始倾诉，获得陪伴
               </router-link>
-              <router-link to="/psychological-test" class="secondary-btn" v-if="isLoggedIn">
+              <router-link to="/psychological-assessment" class="secondary-btn" v-if="isLoggedIn">
                 <i class="fas fa-clipboard-check"></i>心理测评，了解自我
               </router-link>
               <router-link to="/auth/login" class="secondary-btn" v-else>
@@ -94,6 +94,19 @@
               </router-link>
             </div>
           </div>
+          <!-- 心理测试 -->
+          <div class="feature-card">
+            <div class="feature-content">
+              <div class="feature-icon assessment-icon">
+                <i class="fas fa-clipboard-check"></i>
+              </div>
+              <h4 class="feature-title">心理测评</h4>
+              <p class="feature-description">专业量表评估，帮助您更好地了解自己的心理状态和需求</p>
+              <router-link to="/psychological-assessment" class="secondary-btn" v-if="isLoggedIn">
+                <i class="fas fa-clipboard-check"></i>心理测评，了解自我
+              </router-link>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -112,6 +125,15 @@ const isLoggedIn = computed(() => !!userStore.token)
 </script>
 
 <style scoped>
+.assessment-icon {
+  background: rgba(75, 192, 192, 0.1);
+  color: #4bc0c0;
+}
+
+.assessment-icon i {
+  font-size: 2rem;
+  padding: 1rem;
+}
 /* 导入Font Awesome图标库样式 */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
