@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { useUserStore } from '@/store/user'
 import BackendLayout from '@/layouts/BackendLayout.vue'
 
+
 // 后台路由
 export const backendRoutes = [
   {
@@ -120,8 +121,18 @@ const frontendRoutes = [
         name: 'MyFavorites',
         component: () => import('@/views/frontend/MyFavorites.vue'),
         meta: { title: '我的收藏', requiresAuth: true }
+      },
+      // 新增心理测评路由
+      {
+        path: 'evaluationDetail',
+        name: 'evaluationDetail',
+        component: () => import('@/views/frontend/EvaluationDetail.vue'),
+        meta: {
+          title: '心理测评',
+          requiresAuth: true  // 需要登录才能访问
+        }
       }
-    ] 
+    ]
   },
   // 认证相关路由使用专门的认证布局
   {

@@ -47,7 +47,7 @@
       <footer class="footer">
         <div class="footer-container">
           <div class="footer-bottom">
-            <p>&copy; 2025 心理健康AI助手. 保留所有权利.</p>
+            <p>心理健康AI助手</p>
           </div>
         </div>
       </footer>

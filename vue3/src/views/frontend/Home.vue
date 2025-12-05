@@ -19,6 +19,12 @@
               <router-link to="/auth/login" class="primary-btn" v-else>
                 <i class="fas fa-heart"></i>开始倾诉，获得陪伴
               </router-link>
+              <router-link to="/psychological-test" class="secondary-btn" v-if="isLoggedIn">
+                <i class="fas fa-clipboard-check"></i>心理测评，了解自我
+              </router-link>
+              <router-link to="/auth/login" class="secondary-btn" v-else>
+                <i class="fas fa-clipboard-check"></i>心理测评，了解自我
+              </router-link>
               <router-link to="/emotion-diary" class="secondary-btn" v-if="isLoggedIn">
                 <i class="fas fa-pen-fancy"></i>记录心情，释放情感
               </router-link>
@@ -45,7 +51,7 @@
           <h3 class="section-title">我们的服务</h3>
           <p class="section-description">用心倾听每一个故事，用爱温暖每一颗心灵</p>
         </div>
-        
+
         <div class="features-grid">
           <!-- AI咨询 -->
           <div class="feature-card">
@@ -222,7 +228,7 @@ const isLoggedIn = computed(() => !!userStore.token)
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 
+  box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
   position: relative;
@@ -373,32 +379,32 @@ const isLoggedIn = computed(() => !!userStore.token)
     gap: 2rem;
     text-align: center;
   }
-  
+
   .hero-title {
     font-size: 2rem;
   }
-  
+
   .hero-description {
     font-size: 1rem;
   }
-  
+
   .hero-actions {
     justify-content: center;
   }
-  
+
   .hero-icon {
     width: 200px;
     height: 200px;
   }
-  
+
   .hero-icon i {
     font-size: 5rem;
   }
-  
+
   .section-title {
     font-size: 2rem;
   }
-  
+
   .features-grid {
     grid-template-columns: 1fr;
   }
@@ -408,34 +414,34 @@ const isLoggedIn = computed(() => !!userStore.token)
   .hero-section {
     padding: 3rem 0;
   }
-  
+
   .hero-title {
     font-size: 1.75rem;
   }
-  
+
   .primary-btn,
   .secondary-btn {
     padding: 0.5rem 1.5rem;
     font-size: 0.875rem;
   }
-  
+
   .hero-icon {
     width: 150px;
     height: 150px;
   }
-  
+
   .hero-icon i {
     font-size: 3.5rem;
   }
-  
+
   .features-section {
     padding: 3rem 0;
   }
-  
+
   .section-title {
     font-size: 1.75rem;
   }
-  
+
   .feature-card {
     padding: 1.5rem;
   }
