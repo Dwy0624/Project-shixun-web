@@ -3,7 +3,6 @@ import { useUserStore } from '@/store/user'
 import BackendLayout from '@/layouts/BackendLayout.vue'
 import Home from '@/views/frontend/Home.vue'
 import Login from '@/views/auth/Login.vue'
-// 导入心理测评组件
 import PsychologicalAssessment from '@/views/psychological/PsychologicalAssessment.vue'
 import AssessmentDetail from '@/views/psychological/AssessmentDetail.vue'
 

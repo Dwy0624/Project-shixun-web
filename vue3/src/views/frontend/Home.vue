@@ -33,11 +33,10 @@
               </router-link>
             </div>
           </div>
+
           <div class="hero-image">
-            <div class="icon-wrapper">
-              <div class="hero-icon">
-                <i class="fas fa-robot"></i>
-              </div>
+            <div class="mindfulness-icon">
+              <i class="fas fa-heart"></i>
             </div>
           </div>
         </div>
@@ -94,7 +93,8 @@
               </router-link>
             </div>
           </div>
-          <!-- 心理测试 -->
+
+          <!-- 心理测评 -->
           <div class="feature-card">
             <div class="feature-content">
               <div class="feature-icon assessment-icon">
@@ -102,16 +102,42 @@
               </div>
               <h4 class="feature-title">心理测评</h4>
               <p class="feature-description">专业量表评估，帮助您更好地了解自己的心理状态和需求</p>
-              <router-link to="/psychological-assessment" class="secondary-btn" v-if="isLoggedIn">
-                <i class="fas fa-clipboard-check"></i>心理测评，了解自我
+              <router-link :to="isLoggedIn ? '/psychological-assessment' : '/auth/login'" class="feature-link">
+                开始测评 <i class="fas fa-arrow-right"></i>
+              </router-link>
+            </div>
+          </div>
+
+          <!-- 我的收藏 -->
+          <div class="feature-card">
+            <div class="feature-content">
+              <div class="feature-icon favorite-icon">
+                <i class="fas fa-heart"></i>
+              </div>
+              <h4 class="feature-title">我的收藏</h4>
+              <p class="feature-description">珍藏每一份触动心灵的瞬间，汇聚成长路上的智慧点滴</p>
+              <router-link :to="isLoggedIn ? '/my-favorites' : '/auth/login'" class="feature-link">
+                查看收藏 <i class="fas fa-arrow-right"></i>
+              </router-link>
+            </div>
+          </div>
+
+          <!-- 个人中心 -->
+          <div class="feature-card">
+            <div class="feature-content">
+              <div class="feature-icon profile-icon">
+                <i class="fas fa-user"></i>
+              </div>
+              <h4 class="feature-title">个人中心</h4>
+              <p class="feature-description">管理您的个人信息，追踪成长足迹，定制专属心灵旅程</p>
+              <router-link :to="isLoggedIn ? '/profile' : '/auth/login'" class="feature-link">
+                进入中心 <i class="fas fa-arrow-right"></i>
               </router-link>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-
   </div>
 </template>
 
@@ -121,19 +147,65 @@ import { useUserStore } from '@/store/user'
 
 const userStore = useUserStore()
 const isLoggedIn = computed(() => !!userStore.token)
-
 </script>
 
 <style scoped>
-.assessment-icon {
-  background: rgba(75, 192, 192, 0.1);
-  color: #4bc0c0;
+/* 替换原机器人图标的样式 */
+.mindfulness-icon {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(126, 211, 33, 0.2) 0%, rgba(74, 144, 226, 0.2) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+  animation: pulse 4s ease-in-out infinite;
 }
 
-.assessment-icon i {
-  font-size: 2rem;
-  padding: 1rem;
+.mindfulness-icon::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  animation: shine 6s ease-in-out infinite;
 }
+
+.mindfulness-icon i {
+  font-size: 8rem;
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+  animation: float 3s ease-in-out infinite;
+}
+
+/* 新动画效果 */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
+  50% { transform: scale(1.03); box-shadow: 0 25px 45px rgba(74, 144, 226, 0.2); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shine {
+  0%, 100% { transform: translateX(-100%) rotate(45deg); }
+  50% { transform: translateX(100%) rotate(45deg); }
+}
+
 /* 导入Font Awesome图标库样式 */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
@@ -143,7 +215,7 @@ const isLoggedIn = computed(() => !!userStore.token)
 
 /* 英雄区域样式 */
 .hero-section {
-  background: linear-gradient(135deg, #4A90E2 0%, #7ED321 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   padding: 5rem 0;
   min-height: 70vh;
@@ -240,58 +312,10 @@ const isLoggedIn = computed(() => !!userStore.token)
   align-items: center;
 }
 
-.hero-icon {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-icon::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transform: rotate(45deg);
-  animation: shine 3s ease-in-out infinite;
-}
-
-.hero-icon i {
-  font-size: 8rem;
-  color: rgba(255, 255, 255, 0.9);
-  position: relative;
-  z-index: 1;
-  text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-}
-
-@keyframes shine {
-  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-  50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-  100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-}
-
-@keyframes breathing {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-/* 核心功能区域样式 */
+/* 功能区域样式 */
 .features-section {
-  padding: 5rem 0;
-  background: white;
+  padding: 6rem 0;
+  background-color: white;
 }
 
 .features-container {
@@ -308,91 +332,105 @@ const isLoggedIn = computed(() => !!userStore.token)
 .section-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #333;
   margin-bottom: 1rem;
 }
 
 .section-description {
-  font-size: 1.25rem;
-  color: #6b7280;
-  max-width: 600px;
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 700px;
   margin: 0 auto;
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2rem;
 }
 
 .feature-card {
-  background: white;
+  background-color: #f9f9f9;
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  transition: all 0.4s ease;
-  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .feature-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(74, 144, 226, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .feature-icon {
-  width: 4rem;
-  height: 4rem;
-  margin: 0 auto 1rem;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .ai-icon {
-  background: linear-gradient(135deg, #4A90E2, #9013FE);
+  background: rgba(74, 144, 226, 0.1);
+  color: #4A90E2;
 }
 
 .emotion-icon {
-  background: linear-gradient(135deg, #7ED321, #F5A623);
+  background: rgba(255, 152, 158, 0.1);
+  color: #ff9a9e;
 }
 
 .knowledge-icon {
-  background: linear-gradient(135deg, #F5A623, #9013FE);
+  background: rgba(126, 211, 33, 0.1);
+  color: #7ED321;
 }
 
+.assessment-icon {
+  background: rgba(75, 192, 192, 0.1);
+  color: #4bc0c0;
+}
+
+.feature-icon i {
+  font-size: 2rem;
+  padding: 1rem;
+}
 
 .feature-title {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: #1f2937;
-  margin-bottom: 0.75rem;
+  color: #333;
+  margin-bottom: 1rem;
 }
 
 .feature-description {
-  color: #6b7280;
+  color: #666;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
 .feature-link {
-  color: #4A90E2;
-  text-decoration: none;
-  font-weight: 600;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  transition: color 0.3s ease;
+  color: #4A90E2;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .feature-link:hover {
-  color: #3b7bc8;
+  color: #3a7bc8;
 }
 
+.feature-link i {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
 
+.feature-link:hover i {
+  transform: translateX(5px);
+}
 
 /* 响应式设计 */
 @media (max-width: 768px) {
@@ -414,12 +452,12 @@ const isLoggedIn = computed(() => !!userStore.token)
     justify-content: center;
   }
 
-  .hero-icon {
+  .mindfulness-icon {
     width: 200px;
     height: 200px;
   }
 
-  .hero-icon i {
+  .mindfulness-icon i {
     font-size: 5rem;
   }
 
@@ -447,12 +485,12 @@ const isLoggedIn = computed(() => !!userStore.token)
     font-size: 0.875rem;
   }
 
-  .hero-icon {
+  .mindfulness-icon {
     width: 150px;
     height: 150px;
   }
 
-  .hero-icon i {
+  .mindfulness-icon i {
     font-size: 3.5rem;
   }
 
@@ -467,5 +505,20 @@ const isLoggedIn = computed(() => !!userStore.token)
   .feature-card {
     padding: 1.5rem;
   }
+}
+
+.favorite-icon {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.profile-icon {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.favorite-icon i, .profile-icon i {
+  font-size: 2rem;
+  padding: 1rem;
 }
 </style>

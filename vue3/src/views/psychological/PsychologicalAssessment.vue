@@ -24,6 +24,12 @@
           </div>
         </div>
       </div>
+      <div class="assessment-center">
+        <!-- 返回首页按钮 -->
+        <button class="back-home-btn" @click="goToHome">
+          <i class="fas fa-home"></i> 返回首页
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -36,6 +42,10 @@ import { useUserStore } from '@/store/user'
 import { redirectToLogin } from '@/utils/auth' // 引入登录跳转工具函数
 
 const router = useRouter()
+// 跳转到首页
+const goToHome = () => {
+  router.push('/')
+}
 const userStore = useUserStore()
 
 // 检查登录状态
@@ -190,5 +200,40 @@ const startAssessment = (id) => {
   border-radius: 20px;
   background: #f0f7ff;
   color: #1890ff;
+}
+
+/* 返回首页按钮样式 */
+.back-home-btn {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(74, 144, 226, 0.1);
+  color: #4A90E2;
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.back-home-btn:hover {
+  background: rgba(74, 144, 226, 0.2);
+  transform: translateY(-2px);
+}
+
+.back-home-btn i {
+  font-size: 1rem;
+}
+
+/* 确保页面有相对定位，使按钮定位正常 */
+.assessment-center {
+  position: relative;
+  /* 其他现有样式 */
 }
 </style>
