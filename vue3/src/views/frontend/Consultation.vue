@@ -8,7 +8,7 @@
           <div class="ai-assistant-info">
             <div class="assistant-avatar">
               <div class="breathing-circle">
-                <i class="fas fa-robot"></i>
+                <i class="fas fa-heart"></i>
               </div>
             </div>
             <h3 class="assistant-name">小暖AI助手</h3>

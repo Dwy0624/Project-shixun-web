@@ -39,8 +39,15 @@
           <div class="nav-card">
             <h3 class="nav-title">个人中心</h3>
             <nav class="nav-menu">
-              <button 
-                v-for="tab in tabs" 
+              <!-- 新增返回首页按钮 -->
+              <button
+                  class="tab-item"
+                  @click="$router.push('/')"
+              >
+                <i class="fas fa-home"></i>返回首页
+              </button>
+              <button
+                v-for="tab in tabs"
                 :key="tab.key"
                 :class="['tab-item', activeTab === tab.key ? 'active' : '']"
                 @click="activeTab = tab.key"
@@ -59,11 +66,11 @@
             <h3 class="section-title">
               <i class="fas fa-user"></i>个人信息
             </h3>
-            
-            <el-form 
-              ref="userFormRef" 
-              :model="userForm" 
-              :rules="userFormRules" 
+
+            <el-form
+              ref="userFormRef"
+              :model="userForm"
+              :rules="userFormRules"
               label-width="120px"
               class="user-form"
             >
@@ -71,19 +78,19 @@
                 <el-form-item label="用户名" prop="username">
                   <el-input v-model="userForm.username" disabled />
                 </el-form-item>
-                
+
                 <el-form-item label="昵称" prop="nickname">
                   <el-input v-model="userForm.nickname" placeholder="请输入昵称" />
                 </el-form-item>
-                
+
                 <el-form-item label="邮箱" prop="email">
                   <el-input v-model="userForm.email" placeholder="请输入邮箱" />
                 </el-form-item>
-                
+
                 <el-form-item label="手机号" prop="phone">
                   <el-input v-model="userForm.phone" placeholder="请输入手机号" />
                 </el-form-item>
-                
+
                 <el-form-item label="性别" prop="gender">
                   <el-radio-group v-model="userForm.gender">
                     <el-radio :label="0">未知</el-radio>
@@ -91,7 +98,7 @@
                     <el-radio :label="2">女</el-radio>
                   </el-radio-group>
                 </el-form-item>
-                
+
                 <el-form-item label="生日" prop="birthday">
                   <el-date-picker
                     v-model="userForm.birthday"
@@ -101,7 +108,7 @@
                   />
                 </el-form-item>
               </div>
-              
+
               <el-form-item>
                 <el-button type="primary" :loading="updateLoading" @click="updateUserInfo">
                   <i class="fas fa-save mr-2"></i>保存修改
@@ -115,41 +122,41 @@
             <h3 class="section-title">
               <i class="fas fa-key"></i>修改密码
             </h3>
-            
-            <el-form 
-              ref="passwordFormRef" 
-              :model="passwordForm" 
-              :rules="passwordFormRules" 
+
+            <el-form
+              ref="passwordFormRef"
+              :model="passwordForm"
+              :rules="passwordFormRules"
               label-width="120px"
               class="password-form"
             >
               <el-form-item label="原密码" prop="oldPassword">
-                <el-input 
-                  v-model="passwordForm.oldPassword" 
-                  type="password" 
+                <el-input
+                  v-model="passwordForm.oldPassword"
+                  type="password"
                   placeholder="请输入原密码"
-                  show-password 
+                  show-password
                 />
               </el-form-item>
-              
+
               <el-form-item label="新密码" prop="newPassword">
-                <el-input 
-                  v-model="passwordForm.newPassword" 
-                  type="password" 
+                <el-input
+                  v-model="passwordForm.newPassword"
+                  type="password"
                   placeholder="请输入新密码"
-                  show-password 
+                  show-password
                 />
               </el-form-item>
-              
+
               <el-form-item label="确认密码" prop="confirmPassword">
-                <el-input 
-                  v-model="passwordForm.confirmPassword" 
-                  type="password" 
+                <el-input
+                  v-model="passwordForm.confirmPassword"
+                  type="password"
                   placeholder="请再次输入新密码"
-                  show-password 
+                  show-password
                 />
               </el-form-item>
-              
+
               <el-form-item>
                 <el-button type="primary" :loading="passwordLoading" @click="updatePassword">
                   <i class="fas fa-shield-alt mr-2"></i>修改密码
@@ -291,10 +298,10 @@ const beforeAvatarUpload = (file) => {
 const handleUploadAvatar = async ({ file, onSuccess, onError }) => {
   try {
     uploadingAvatar.value = true
-    
+
     // 创建本地预览URL
     const previewUrl = URL.createObjectURL(file)
-    
+
     // 第一阶段：上传到临时业务存储区
     await uploadTempBusinessFile(file, {
       businessType: 'USER_AVATAR',
@@ -331,21 +338,21 @@ const cancelAvatarUpload = () => {
     URL.revokeObjectURL(tempAvatarUrl.value)
     tempAvatarUrl.value = null
   }
-  
+
   // 重置临时文件ID
   tempFileId.value = null
-  
+
   ElMessage.info('已取消头像上传')
 }
 
 // 更新用户信息
 const updateUserInfo = async () => {
   if (!userFormRef.value) return
-  
+
   try {
     await userFormRef.value.validate()
     updateLoading.value = true
-    
+
     // 调用更新用户信息API
     console.log('更新用户信息，发送数据:', userForm)
     await updateUser(userForm, {
@@ -355,7 +362,7 @@ const updateUserInfo = async () => {
         // 更新本地用户信息
         Object.assign(userProfile, res)
         userStore.setUserInfo(res)
-        
+
         // 第二阶段：如果有临时头像文件，确认并关联，然后再次更新用户信息
         if (tempFileId.value) {
           console.log('开始确认临时头像文件:', tempFileId.value)
@@ -372,13 +379,13 @@ const updateUserInfo = async () => {
                   URL.revokeObjectURL(tempAvatarUrl.value)
                   tempAvatarUrl.value = null
                 }
-                
+
                 // 更新头像路径
                 const newAvatarPath = fileRes.filePath
                 userProfile.avatar = newAvatarPath
                 userForm.avatar = newAvatarPath
                 tempFileId.value = null
-                
+
                 // 重要：再次调用后端更新用户信息，包含新的头像路径
                 console.log('开始更新用户头像字段到后端:', newAvatarPath)
                 await updateUser({ avatar: newAvatarPath }, {
@@ -418,11 +425,11 @@ const updateUserInfo = async () => {
 // 修改密码
 const updatePassword = async () => {
   if (!passwordFormRef.value) return
-  
+
   try {
     await passwordFormRef.value.validate()
     passwordLoading.value = true
-    
+
     // 调用修改密码API
     await updateUserPassword(passwordForm, {
       successMsg: '密码修改成功',
@@ -457,7 +464,7 @@ onMounted(async () => {
           birthday: res.birthday || '',
           avatar: res.avatar || '' // 添加头像字段初始化
         })
-        
+
         // 设置显示名称
         userProfile.displayName = res.nickname || res.username
       }
@@ -697,16 +704,16 @@ onMounted(async () => {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .nav-card {
     position: static;
   }
-  
+
   .nav-menu {
     flex-direction: row;
     overflow-x: auto;
   }
-  
+
   .tab-item {
     white-space: nowrap;
     min-width: fit-content;
@@ -717,32 +724,32 @@ onMounted(async () => {
   .profile-header {
     padding: 2rem 0;
   }
-  
+
   .avatar-section {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
   }
-  
+
   .user-details {
     text-align: center;
   }
-  
+
   .user-name {
     font-size: 1.5rem;
   }
-  
+
   .main-content {
     padding: 1rem;
   }
-  
+
   .content-card {
     padding: 1.5rem;
   }
-  
+
   .form-grid {
     grid-template-columns: 1fr;
   }
 }
 
-</style> 
+</style>

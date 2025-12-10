@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { useUserStore } from '@/store/user'
 import BackendLayout from '@/layouts/BackendLayout.vue'
 import Home from '@/views/frontend/Home.vue'
+import MyFavorites from '@/views/frontend/MyFavorites.vue'
+import Profile from '@/views/profile/index.vue'
 import Login from '@/views/auth/Login.vue'
 import PsychologicalAssessment from '@/views/psychological/PsychologicalAssessment.vue'
 import AssessmentDetail from '@/views/psychological/AssessmentDetail.vue'
@@ -245,6 +247,21 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/my-favorites',
+      name: 'MyFavorites',
+      component: MyFavorites,
+      meta: {
+        title: '我的收藏',  // 页面标题
+        requiresAuth: true
+      }// 需要登录才能访问
+    },
+    {
+      path: '/profile',
+      name: 'Profile',
+      component: Profile,
+      meta: { requiresAuth: true } // 需要登录才能访问
     },
     {
       path: '/auth/login',

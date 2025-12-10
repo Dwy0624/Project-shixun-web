@@ -17,11 +17,11 @@
                 </p>
               </div>
             </div>
-            <!-- 机器人图标区域 -->
+            <!-- 爱心图标区域 -->
             <div class="robot-section">
               <div class="robot-wrapper">
                 <div class="robot-icon">
-                  <i class="fas fa-robot"></i>
+                  <i class="fas fa-heart"></i>
                 </div>
               </div>
             </div>
@@ -88,7 +88,9 @@ const welcomeText = computed(() => {
   display: none;
   width: 50%;
 
-  background: linear-gradient(135deg, #4A90E2 0%, #7ED321 100%);
+  background: linear-gradient(135deg, #e3f88d 0%, rgb(240, 149, 243) 100%);
+  color: #333; /* 文字颜色改为深色以适应浅色背景 */
+  flex: 1;
   position: relative;
   overflow: hidden;
 }
@@ -151,7 +153,7 @@ const welcomeText = computed(() => {
   margin: 0;
 }
 
-/* 机器人图标区域 */
+/* 爱心图标区域 */
 .robot-section {
   display: flex;
   justify-content: center;

@@ -116,7 +116,10 @@
               </div>
               <h4 class="feature-title">我的收藏</h4>
               <p class="feature-description">珍藏每一份触动心灵的瞬间，汇聚成长路上的智慧点滴</p>
-              <router-link :to="isLoggedIn ? '/my-favorites' : '/auth/login'" class="feature-link">
+              <router-link
+                  :to="isLoggedIn ? '/my-favorites' : '/auth/login'"
+                  class="feature-link"
+              >
                 查看收藏 <i class="fas fa-arrow-right"></i>
               </router-link>
             </div>
@@ -130,7 +133,10 @@
               </div>
               <h4 class="feature-title">个人中心</h4>
               <p class="feature-description">管理您的个人信息，追踪成长足迹，定制专属心灵旅程</p>
-              <router-link :to="isLoggedIn ? '/profile' : '/auth/login'" class="feature-link">
+              <router-link
+                  :to="isLoggedIn ? '/profile' : '/auth/login'"
+                  class="feature-link"
+              >
                 进入中心 <i class="fas fa-arrow-right"></i>
               </router-link>
             </div>
@@ -215,7 +221,7 @@ const isLoggedIn = computed(() => !!userStore.token)
 
 /* 英雄区域样式 */
 .hero-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #e3f88d 0%, #f4b6e6 100%);
   color: white;
   padding: 5rem 0;
   min-height: 70vh;
